@@ -1,0 +1,109 @@
+1. 
+SELECT * FROM Customers
+
+2.
+SELECT DISTINCT Country
+FROM Customers
+
+3.
+SELECT *
+FROM Customers
+WHERE CustomerID LIKE '%Bl%'
+
+4.
+SELECT TOP 100 *
+FROM Orders
+
+5.
+SELECT * FROM Orders
+WHERE ShipPostalCode= '1010' OR PostalCode= '3012' OR PostalCode= '12209' OR PostalCode= '05023';
+
+6.
+SELECT * FROM Orders
+WHERE NOT ShipRegion= 'NULL'
+
+7.
+SELECT * FROM Orders
+ORDER BY ShipCountry, ShipCity;
+
+8.
+INSERT INTO Customers(CustomerID, CompanyName, ContactName,Phone)
+VALUES ('TAMAN', 'BigBox Delivery', 'Maggie Tamanini','(800)555-1234')
+
+9.
+UPDATE Orders
+SET ShipRegion = 'EuroZone'
+WHERE ShipCountry = 'France'
+
+10.
+DELETE FROM [Order Details]
+WHERE Quantity = '1'
+
+11.
+SELECT AVG(Quantity)
+FROM  [Order Details]
+
+SELECT MIN(Quantity)
+FROM  [Order Details]
+
+SELECT MAX(Quantity)
+FROM  [Order Details]
+
+
+12.
+SELECT OrderID, Quantity = AVG(Quantity)
+FROM  [Order Details]
+GROUP BY OrderID
+
+SELECT OrderID, Quantity = MIN(Quantity)
+FROM  [Order Details]
+GROUP BY OrderID
+
+SELECT OrderID, Quantity = MAX(Quantity)
+FROM  [Order Details]
+GROUP BY OrderID
+
+13.
+SELECT CustomerID
+FROM Orders
+WHERE OrderID = 10290
+
+
+14.
+
+-----INNER JOIN ----
+SELECT *
+FROM Customers
+INNER JOIN Orders
+ON Orders.CustomerID = Customers.CustomerID;
+
+------LEFT JOIN -----
+
+SELECT *
+FROM Customers
+LEFT JOIN Orders
+ON Orders.CustomerID = Customers.CustomerID;
+
+-----RIGHT JOIN ------
+
+
+SELECT *
+FROM Customers
+RIGHT JOIN Orders
+ON Orders.CustomerID = Customers.CustomerID;
+
+
+
+15.
+SELECT [FirstName]
+FROM Employees
+WHERE ReportsTo IS NULL
+
+
+16.
+SELECT [FirstName]
+FROM Employees
+WHERE ReportsTo = 2
+
+
+
